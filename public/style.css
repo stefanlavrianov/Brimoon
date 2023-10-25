@@ -1,0 +1,78 @@
+.select2-container .select2-choice, .select2-result-label {
+    font-size: 1.5em;
+    height: 41px; 
+    overflow: auto;
+  }
+
+  #totalAnna {
+    background-color: #FF5733; /* Cambia el color de fondo a rojo */
+    color: white; /* Cambia el color del texto a blanco */
+  }
+
+  #totalVera {
+    background-color: #cddc39; /* Cambia el color de fondo a verde */
+    color: white; /* Cambia el color del texto a blanco */
+  }
+
+  #totalValia {
+    background-color: #3357FF; /* Cambia el color de fondo a azul */
+    color: white; /* Cambia el color del texto a blanco */
+  }
+
+  #totalOs {
+    background-color: #FF33FF; /* Cambia el color de fondo a magenta */
+    color: white; /* Cambia el color del texto a blanco */
+  }
+
+  #headerTabla {
+    background-color: whitesmoke; /* Cambia el color de fondo a dorado */
+    color: black; /* Cambia el color del texto a negro o cualquier otro color que prefieras */
+  }
+
+  #buttonAdd {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1%;
+  }
+
+  #formAdd {
+    background: linear-gradient(45deg, whitesmoke, transparent);
+  }
+
+  #tablaResultados{
+    overflow-x: auto;
+    max-height: 300px;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .error {
+    border: 1px solid red;
+  }
+
+  .errorText {
+    color: red;
+    display: none; /* Inicialmente oculto */
+  }
+
+  .total-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+    padding: 10px;
+}
+
+.total-cell {
+    text-align: center;
+}
+
+  @media screen and (max-width: 479px) {
+    #btnFiltrar {
+      display: flex;
+      justify-content: flex-end;
+    }
+}

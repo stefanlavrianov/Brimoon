@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brimoon</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Incluir jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Incluir Select2 JS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Agrega los archivos de SweetAlert -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.2/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.2/dist/sweetalert2.min.js"></script>
+
+</head>
+<body>
+    <div class="container mt-4">
+        <form>
+            <div id="formAdd" class="form-row">
+                <div class="col-md-3">
+                    <label class="bold" for="servicio">Servicio</label>
+                    <select id="servicio" class="form-control select2" style="width: 100%;">
+                        <option value="Tinte de cejas">Tinte de  cejas</option>
+                        <option value="Depilación con hilo cejas">Depilación con hilo cejas</option>
+                        <option value="Depilación con hilo facial">Depilación con hilo facial</option>      
+                        <option value="Depilación con hilo labio superior">Depilación con hilo labio superior</option>   
+                        <option value="Extensiones de pestañas 2D">Extensiones de pestañas 2D</option>   
+                        <option value="Extensiones de pestañas 2D-7D">Extensiones de pestañas 2D-7D</option>   
+                        <option value="Extensiones pestañas pelo a pelo 3D">Extensiones pestañas pelo a pelo 3D</option>   
+                        <option value="Lifting cejas">Lifting cejas</option>   
+                        <option value="Lifting de pestañas">Lifting de pestañas</option> 
+                        <option value="Arreglo de uña rotas">Arreglo de uña rotas</option> 
+                        <option value="Cortar y limar manos">Cortar y limar manos</option> 
+                        <option value="Manicura">Manicura</option> 
+                        <option value="Manicura completa esmaltado normal">Manicura completa esmaltado normal</option> 
+                        <option value="Manicura francesa semi permanente">Manicura francesa semi permanente</option> 
+                        <option value="Manicura Rusa">Manicura Rusa</option> 
+                        <option value="Manicura semipermanente">Manicura semipermanente</option> 
+                        <option value="Primera puesta extensiones polygel cortas">Primera puesta extensiones polygel cortas</option>                      
+                        <option value="Primera puesta extensiones polygel largas">Primera puesta extensiones polygel largas</option> 
+                        <option value="Primera puesta uñas de porcelana cortas">Primera puesta uñas de porcelana cortas</option> 
+                        <option value="Primera puesta uñas de porcelana largas">Primera puesta uñas de porcelana largas</option> 
+                        <option value="Relleno de acrygel">Relleno de acrygel</option> 
+                        <option value="Relleno uñas porcelana">Relleno uñas porcelana</option> 
+                        <option value="Retirada uñas de porcelana">Retirada uñas de porcelana</option> 
+                        <option value="Retirada acrilico/gel">Retirada acrilico/gel</option> 
+                        <option value="Retirar semipermanente">Retirar semipermanente</option> 
+                        <option value="Semipermanente con refuerzo">Semipermanente con refuerzo</option> 
+                        <option value="Cortar y limar pies">Cortar y limar pies</option>                      
+                        <option value="Esmaltado semipermanente pies">Esmaltado semipermanente pies</option> 
+                        <option value="Pedicura completa semipermanente">Pedicura completa semipermanente</option> 
+                        <option value="Pedicura con esmaltado normal">Pedicura con esmaltado normal</option> 
+                        <option value="Pedicura sin esmaltado">Pedicura sin esmaltado</option> 
+                        <option value="Reconstruccion de uñas mordidas en gel o acrilico">Reconstruccion de uñas mordidas en gel o acrilico</option> 
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="bold" for="precio">Precio</label>
+                    <input type="number" id="precio" class="form-control" placeholder="Precio" value="0">
+                    <div id="errorPrecioText" class="errorText">El precio no puede ser 0</div>
+                </div>
+                <div class="col-md-3">
+                    <label class="bold" for="metodo">Método de Pago</label>
+                    <select id="metodo" class="form-control">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Bizum">Bizum</option>
+                        <option value="Programa">Programa</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="bold" for="nombre1">De quien</label>
+                    <select id="nombre1" class="form-control" onchange="actualizarParaQuien(this)">
+                        <option value="Anna">Anna</option>
+                        <option value="Vera">Vera</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="bold" for="nombre2">Para quien</label>
+                    <select id="nombre2" class="form-control">
+                        <option value="Anna">Anna</option>
+                        <option value="Vera">Vera</option>
+                        <option value="Valia">Valia</option>
+                        <option value="Os">Os</option>
+                    </select>
+                </div>
+                <div id="buttonAdd" class="col-md-12 mt-3">
+                    <button type="button" class="btn btn-success bold" onclick="calcularPorcentajes()">Añadir</button>
+                </div>
+            </div>
+        </form>
+        <form id="filtroForm">
+            <div class="row">
+              <div class="col-md-2 mt-4">
+                <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
+              </div>
+              <div class="col-md-2 mt-4">
+                <input type="date" class="form-control" id="fechaFin" name="fechaFin">
+              </div>
+              <div id="btnFiltrar" class="col-md-2 mt-4">
+                <button type="button" class="btn btn-primary bold" onclick="actualizarTablaResultados()">Filtrar</button>
+              </div>
+            </div>
+        </form>
+
+        <div id="tablaResultados">
+            <table class="table mt-4">
+                <thead id="headerTabla">
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Precio</th>
+                        <th>Método de Pago</th>
+                        <th>De quien</th>
+                        <th>Porcentaje</th>
+                        <th>Total 1</th>
+                        <th>Para quien</th>
+                        <th>Porcentaje</th>
+                        <th>Total 2</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="resultado">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total-container">
+            <div id="totalAnna" class="total-cell font-weight-bold">Anna: 0€</div>
+            <div id="totalVera" class="total-cell font-weight-bold">Vera: 0€</div>
+            <div id="totalValia" class="total-cell font-weight-bold">Valia: 0€</div>
+            <div id="totalOs" class="total-cell font-weight-bold">Os: 0€</div>
+        </div>
+        
+    </div>
+
+    <script src="servicio.js"></script>
+</body>
+</html>
