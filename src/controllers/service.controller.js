@@ -1,4 +1,4 @@
-import { getConnection } from "../database/database";
+import { getConnection } from "../database/database.js";
 
 const getServices = async (req, res) => {
     try {
@@ -20,7 +20,7 @@ const getServices = async (req, res) => {
             sql += ` fecha <= '${fechaFin}'`;
         }
 
-        const connection = await getConnection();
+        const connection = await getConnection;
         const result = await connection.query(sql);
         res.json(result);
     } catch (error) {
@@ -32,7 +32,7 @@ const getServices = async (req, res) => {
 const getService = async (req, res) => {
     try {
         const { id } = req.params;
-        const connection = await getConnection();
+        const connection = await getConnection;
         const result = await connection.query("SELECT * FROM servicios WHERE id = ?", id);
         res.json(result);
     } catch (error) {
@@ -50,7 +50,7 @@ const addService = async (req, res) => {
         }
 
         const service = {servicio, metodo_pago, de_quien, porcentaje_primero, total_primero, para_quien, porcentaje_segundo, total_segundo, precio, fecha};
-        const connection = await getConnection();
+        const connection = await getConnection;
         await connection.query("INSERT INTO servicios SET ?", service);
         res.json({ message: "Services added" });
     } catch (error) {
@@ -69,7 +69,7 @@ const updateService = async (req, res) => {
         }
 
         const language = { name, programmers };
-        const connection = await getConnection();
+        const connection = await getConnection;
         const result = await connection.query("UPDATE language SET ? WHERE id = ?", [language, id]);
         res.json(result);
     } catch (error) {
@@ -81,7 +81,7 @@ const updateService = async (req, res) => {
 const deleteService = async (req, res) => {
     try {
         const { id } = req.params;
-        const connection = await getConnection();
+        const connection = await getConnection;
         const result = await connection.query("DELETE FROM servicios WHERE id = ?", id);
         res.json(result);
     } catch (error) {
