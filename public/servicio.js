@@ -34,7 +34,7 @@ function actualizarTablaResultados() {
     })
     .then(data => {
         // Suponiendo que data es un arreglo de objetos con los campos mencionados
-        data.forEach(item => {
+        data[0].forEach(item => {
             const row = `
                 <tr>
                     <td>${item.servicio}</td>
@@ -53,7 +53,7 @@ function actualizarTablaResultados() {
             resultadoTable.innerHTML += row;
         });
 
-        servicios = data;
+        servicios = data[0];
         actualizarTotales();
     })
     .catch(error => {
