@@ -158,6 +158,13 @@ function calcularPorcentajes() {
         }
         
         actualizarTablaResultados();
+
+        $("#servicio").val("Tinte de cejas").trigger("change");
+        $("#servicio").trigger("change.select2");
+        document.getElementById("precio").value = 0;
+        document.getElementById("metodo").value = "Efectivo";
+        document.getElementById("nombre1").value = "Anna";
+        document.getElementById("nombre2").value = "Anna";
         })
         .catch(error => {
         console.error('Error al enviar la solicitud PUT:', error);
