@@ -42,10 +42,10 @@ function actualizarTablaResultados() {
                     <td>${item.metodo_pago}</td>
                     <td>${item.de_quien}</td>
                     <td>${item.porcentaje_primero}%</td>
-                    <td>${item.total_primero.toFixed(2)}€</td>
+                    <td>${item.total_primero != null ? item.total_primero.toFixed(2) : 0}€</td>
                     <td>${item.para_quien}</td>
                     <td>${item.porcentaje_segundo}%</td>
-                    <td>${item.total_segundo.toFixed(2)}€</td>
+                    <td>${item.total_segundo != null? item.total_segundo.toFixed(2) : 0}€</td>
                     <td><button class="btn btn-danger bold" onclick="eliminarFila(${item.id})">Eliminar</button></td>
                 </tr>
             `;
