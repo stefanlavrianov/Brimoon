@@ -103,6 +103,7 @@ function calcularPorcentajes() {
         $('#errorPrecioText').show();
     } else {
         $('#precio').removeClass('error');
+        $('#nombre2').removeClass('error');
         $('#errorPrecioText').hide();
 
         let porcentajeNombre1 = 0;
@@ -111,16 +112,19 @@ function calcularPorcentajes() {
         if (nombre1 === "Anna" && nombre2 === "Vera") {
             porcentajeNombre1 = 40;
             porcentajeNombre2 = 60;
-        } else if (nombre1 === "Vera" && nombre2 === "Anna") {
-            porcentajeNombre1 = 80;
-            porcentajeNombre2 = 20;
         } else if (nombre1 === "Anna" && nombre2 === "Valia") {
             porcentajeNombre1 = 30;
             porcentajeNombre2 = 70;
         } else if (nombre1 === "Anna" && nombre2 === "Os") {
             porcentajeNombre1 = 70;
             porcentajeNombre2 = 30;
-        } else {
+        } else if (nombre1 === "Vera" && nombre2 === "Anna") {
+            porcentajeNombre1 = 80;
+            porcentajeNombre2 = 20;
+        } else if (nombre1 === "Vera" && nombre2 === "Valia" || nombre2 === "Os" || nombre2 === "Vera" ) {
+            $('#nombre2').addClass('error');
+            return;
+        }else {
             porcentajeNombre1 = 100;
             porcentajeNombre2 = 0;
         }
