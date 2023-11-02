@@ -110,8 +110,8 @@ function calcularPorcentajes() {
         let porcentajeNombre2 = 0;
 
         if (nombre1 === "Anna" && nombre2 === "Vera") {
-            porcentajeNombre1 = 40;
-            porcentajeNombre2 = 60;
+            porcentajeNombre1 = 60;
+            porcentajeNombre2 = 40;
         } else if (nombre1 === "Anna" && nombre2 === "Valia") {
             porcentajeNombre1 = 30;
             porcentajeNombre2 = 70;
