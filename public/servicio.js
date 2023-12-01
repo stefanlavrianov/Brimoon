@@ -181,15 +181,28 @@ function actualizarTotales() {
         Os: 0
     };
 
+    let totalNegocio = 0;
+
+    //Aqui suma los totales de cada nombre
     for (const servicio of servicios) {
         totalesNombres[servicio.de_quien] += servicio.total_primero;
         totalesNombres[servicio.para_quien] += servicio.total_segundo;
+
+        if(servicio.de_quien == "Vera" && servicio.para_quien == "Anna"){
+            totalNegocio += servicio.total_segundo;
+        }else if(servicio.para_quien == "Vera" || servicio.para_quien == "Valia" || servicio.para_quien == "Os"){
+            totalNegocio += servicio.total_primero;
+        }
     }
 
+    //Aqui asigna los totales a cada nombre
     for (const nombre in totalesNombres) {
         const totalElement = document.getElementById(`total${nombre}`);
         totalElement.textContent = nombre +": "+ totalesNombres[nombre].toFixed(2) +"€";
     }
+
+   const totalNegocioElement = document.getElementById('totalNegocio'); 
+   totalNegocioElement.textContent = "Negocio: " +totalNegocio+ "€";
 }
 
 function formatDateToYYYYMMDD(date) {

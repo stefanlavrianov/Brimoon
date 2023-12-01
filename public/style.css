@@ -4,6 +4,12 @@
     overflow: auto;
   }
 
+  #totalNegocio {
+    background-color: #44e324; /* Cambia el color de fondo a rojo */
+    color: white; /* Cambia el color del texto a blanco */
+    margin: 10px 10px 0 10px;
+  }
+
   #totalAnna {
     background-color: #FF5733; /* Cambia el color de fondo a rojo */
     color: white; /* Cambia el color del texto a blanco */
