@@ -202,7 +202,7 @@ function actualizarTotales() {
     }
 
    const totalNegocioElement = document.getElementById('totalNegocio'); 
-   totalNegocioElement.textContent = "Negocio: " +totalNegocio+ "€";
+   totalNegocioElement.textContent = "Negocio: " +totalNegocio.toFixed(2)+ "€";
 }
 
 function formatDateToYYYYMMDD(date) {
